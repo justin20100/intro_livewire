@@ -4,7 +4,6 @@
     'sortOrder'
 ])
 
-
 @php
     $qpf = array_filter($qp, fn($p)=>$p!=='sort-field', ARRAY_FILTER_USE_KEY);
 @endphp
