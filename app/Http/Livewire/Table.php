@@ -12,10 +12,12 @@ class Table extends Component
 
     public $searchTerm;
     public $perPage;
+    public $sortField;
 
     protected $listeners = [
         'updatedSearchTerm' => 'updateContactsWithFilter',
         'perPageUpdated' => 'updateContactsWithNewPaginationCount',
+        'sortOrderUpdated' =>'updateContactsWithNewSortOrder'
     ];
 
     public function mount()
@@ -36,12 +38,18 @@ class Table extends Component
         $this->resetPage();
     }
 
+    public function updateContactsWithNewSortOrder($sortField){
+        $this->sortField = $sortField;
+        $this->resetPage();
+    }
+
     public function render()
     {
         return view('livewire.table', [
             'contacts' => Contact::query()
                 ->where('name', 'like', '%' . $this->searchTerm . '%')
                 ->orWhere('email', 'like', '%' . $this->searchTerm . '%')
+                ->orderBy($this->sortField??'name')
                 ->paginate($this->perPage),
         ]);
     }

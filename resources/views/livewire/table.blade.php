@@ -2,9 +2,9 @@
     <table>
         <thead>
         <tr>
-            <td><a href="#">Name</a></td>
-            <td><a href="#">Email</a></td>
-            <td><a href="#">Birthdate</a></td>
+            <td><a href="#" wire:click="$set('sortField', 'name')">Name</a></td>
+            <td><a href="#" wire:click="$set('sortField', 'email')">Email</a></td>
+            <td><a href="#" wire:click="$set('sortField', 'birth')">Birthdate</a></td>
         </tr>
         </thead>
         <tbody>
