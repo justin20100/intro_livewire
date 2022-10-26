@@ -53,8 +53,22 @@
                 </button>
             </div>
         </form>
-    </div>
+        <form action="/">
+            <label for="sort-order"
+                   class="font-bold">sort order:</label>
+            <select name="sort-order"
+                    class=" sort-order pl-4 p-2 rounded-lg shadow-md bg-blue-800 text-white"
+                    id="sort-order">
+                <option value="ASC" {{$sortOrder == 'ASC' ? 'selected' : ''}}>ASC</option>
+                <option value="DESC" {{$sortOrder == 'DESC' ? 'selected' : ''}}>DESC</option>
+            </select>
+            <button type="submit"
+                    class="px-4 py-2 rounded-lg shadow-md bg-blue-800 text-white uppercase tracking-wider">Change
+                pagination
+            </button>
+        </form>
 
+    </div>
     <x-table :qp="$qp" :contacts="$contacts->items()"/>
     <div class="pageNavigation">
         {{$contacts->appends($qp)->links('pagination::tailwind')}}

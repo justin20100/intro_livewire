@@ -8,7 +8,7 @@
     <tr class="{{$loop->even?'bg-gray-50':'bg-white'}} [&>td]:p-4 [&>td]:border">
         <td>{{$contact->name}}</td>
         <td>{{$contact->email}}</td>
-        <td>{{$contact->birthdate}}</td>
+        <td>{{$contact->birth}}</td>
     </tr>
 @endforeach
 </tbody>

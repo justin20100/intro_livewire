@@ -16,11 +16,11 @@
                 $qpf = array_filter($qp, static fn($p) => $p !== 'sort-field' ,ARRAY_FILTER_USE_KEY);
             @endphp
             <th scope="col"
-                class="tracking-wider"><a href="/?sort-field=name&amp;{{http_build_query($qpf)}}">Name</a></th>
+                class="tracking-wider"><a  data-key="name" href="/?sort-field=name&amp;{{http_build_query($qpf)}}">Name</a></th>
             <th scope="col"
-                class="tracking-wider"><a href="/?sort-field=email&amp;{{http_build_query($qpf)}}">Email</a></th>
+                class="tracking-wider"><a data-key="email" href="/?sort-field=email&amp;{{http_build_query($qpf)}}">Email</a></th>
             <th scope="col"
-                class="tracking-wider"><a href="/?sort-field=birthdate&amp;{{http_build_query($qpf)}}">Birthdate</a>
+                class="tracking-wider"><a data-key="birth" href="/?sort-field=birth&amp;{{http_build_query($qpf)}}">Birthdate</a>
             </th>
         </tr>
         </thead>
