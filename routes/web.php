@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,17 @@ Route::get('/', function () {
         'sortOrder'
     ));
 });
+
+Route::get('/ajax',
+    function () {
+        $requestData = request()->all();
+        extract($requestData);
+        return view('components.table', [
+            'contacts' => Contact::query()
+                ->where('name', 'like', '%'.$searchTerm.'%')
+                ->orWhere('email', 'like', '%'.$searchTerm.'%')
+                ->orderBy($sortField, $sortOrder)
+                ->paginate($perPage),
+            'qp' => $requestData,
+        ]);
+    });
